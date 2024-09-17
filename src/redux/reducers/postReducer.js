@@ -10,6 +10,11 @@ const initialState = {
           ...state,
           posts: [...state.posts, action.payload],
         };
+        case 'DELETE_ITEM':
+          return {
+              ...state,
+              posts: state.posts.filter(item => item.id !== action.payload),
+          };
       default:
         return state;
     }

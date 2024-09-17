@@ -15,7 +15,7 @@ import moment from 'moment';
 import {styles} from './styles';
 import Entypo from 'react-native-vector-icons/Entypo';
 import axios from 'axios';
-
+import uuid from 'react-native-uuid';
 const PostScreen = ({navigation}) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -24,7 +24,7 @@ const PostScreen = ({navigation}) => {
   const token1 = useSelector(state => state.auth.token);
   console.log('img urlll',imageUri);
   const dispatch = useDispatch();
-
+  const [postId, setPostId] = useState(uuid.v4());
   // Handle image selection
   const selectImage = () => {
     ImagePicker.launchImageLibrary({}, response => {
@@ -92,6 +92,7 @@ const PostScreen = ({navigation}) => {
         author,
         imageUri: imageUri || 'https://via.placeholder.com/150', // Static image if none selected
         timestamp: moment().format('YYYY-MM-DD HH:mm:ss'),
+        id:postId
       };
       dispatch(addPost(newPost));
 
@@ -105,6 +106,7 @@ const PostScreen = ({navigation}) => {
       setContent('');
       setAuthor('');
       setImageUri(null);
+      setPostId(null)
     }
   };
 

@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet,Dimensions } from 'react-native';
+const {width, height}=Dimensions.get('screen')
 
 
 export const styles = StyleSheet.create({
@@ -21,10 +22,12 @@ export const styles = StyleSheet.create({
       padding: 10,
     },
     imageContainer: {
-      flex: 1,
+      // flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
       marginBottom: 10,
+      width: width * 0.32,
+      height: 100,
       // gap:4
     },
     image: {
@@ -36,9 +39,13 @@ export const styles = StyleSheet.create({
     deleteButton: {
       position: 'absolute',
       top: 5,
-      right: 10,
+      right: width * 0.025,
       // backgroundColor: 'rgba(0, 0, 0, 0.5)',
       padding: 5,
       // borderRadius: 5,
     },
+    noPostText:{
+      alignSelf:'center',
+      marginTop:50
+    }
   });

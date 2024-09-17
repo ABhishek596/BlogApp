@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 
 export default function AppNavigator() {
   const token = useSelector(state => state.auth.token);
-  console.log('token', token);
+  // console.log('token', token);
   // const token = 'eds43ers';
   return (
     <NavigationContainer>

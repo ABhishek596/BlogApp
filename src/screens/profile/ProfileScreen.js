@@ -6,7 +6,7 @@ import {useDispatch,useSelector} from 'react-redux';
 import {styles} from './styles';
 import axios from 'axios';
 
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const [user, setUser]=useState();
   const token1 = useSelector(state => state.auth.token);
@@ -50,6 +50,11 @@ const ProfileScreen = () => {
       <View style={{height: 30}} />
       {/* Option List */}
 
+      <TouchableOpacity style={styles.optionContainer} onPress={()=>navigation.navigate('MyPosts')}>
+        <Icon name="list" type="material" color="#555" /> 
+        <Text style={styles.optionText}>All Posts</Text>
+      </TouchableOpacity>
+      
       <TouchableOpacity style={styles.optionContainer}>
         <Icon name="notifications" type="material" color="#555" />
         <Text style={styles.optionText}>Notifications</Text>

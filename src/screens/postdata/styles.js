@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet,Dimensions } from 'react-native';
+const {width, height} = Dimensions.get('screen');
+
 export const styles = StyleSheet.create({
   container: {
     flex:1,
@@ -6,7 +8,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#f7f7f7',
   },
   header: {
-    fontSize: 24,
+    fontSize: width * 0.055,
     fontWeight: 'bold',
     marginBottom: 20,
     alignSelf:'flex-start',

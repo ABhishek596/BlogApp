@@ -124,7 +124,7 @@ const HomeScreen = ({navigation}) => {
               .slice()
               .reverse()
               .map((post, index) => (
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>navigation.navigate('ViewPost',{data:post})}>
                 <View style={styles.restaurantCard}>
                   <Image
                     style={styles.restaurantImage}

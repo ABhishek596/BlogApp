@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, Alert} from 'react-native';
-import {styles} from './styles';
+import {View, Text, TouchableOpacity,Dimensions, Alert,StyleSheet} from 'react-native';
 import CustomInput from '../../component/CustomInput';
 import CustomTextInput from '../../component/CustomTextInput';
 import {token} from '../../redux/actions/authActions';
 import {useDispatch} from 'react-redux';
 import axios from 'axios';
+const {width, height} = Dimensions.get('screen');
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -41,6 +41,7 @@ const LoginScreen = ({navigation}) => {
       let config = {
         method: 'post',
         maxBodyLength: Infinity,
+        // url: `${REACT_APP_BASE_URL}/api/login`,
         url: 'http://192.168.43.3:3000/api/login',
         headers: {
           'Content-Type': 'application/json',
@@ -89,5 +90,73 @@ const LoginScreen = ({navigation}) => {
     </View>
   );
 };
+ const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    backgroundColor: '#ffffff',
+  },
+  title: {
+    fontSize:width *0.075,
+    fontWeight: 'bold',
+    color: '#007AFF',
+    marginBottom: 40,
+    bottom:height * 0.14
+
+  },
+
+  forgotPassword: {
+    color: '#007AFF',
+    textAlign: 'right',
+    marginBottom: 40,
+  },
+  loginButton: {
+    backgroundColor: '#FEC453',
+    paddingVertical: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+    // position:'absolute'
+  },
+  loginText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  logo: {
+    width: 150,
+    height: 100,
+    resizeMode: 'contain',
+    alignSelf: 'center',
+    marginTop: 40,
+  },
+  title2: {
+    fontSize: 12,
+    // fontWeight: 'bold',
+    color: '#000000',
+    marginTop: 40,
+    alignSelf: 'center',
+  },
+
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderColor: '#ddd',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    height: 50,
+    width: width * 0.89, // dynamic width based on screen size
+    marginBottom: 20, // Adjust as needed
+  },
+  icon: {
+    marginRight: 10, // Adjust spacing between icon and input
+  },
+  input2: {
+    flex: 1,
+    height: 47,
+    paddingHorizontal: 10,
+  },
+});
 
 export default LoginScreen;
